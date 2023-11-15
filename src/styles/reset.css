@@ -1,0 +1,50 @@
+/* tag reset */
+* {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  background: none;
+  outline: none;
+}
+input {
+  background: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+img {
+  height: 100%;
+  width: auto;
+}
+em {
+  font-style: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
