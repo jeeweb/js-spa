@@ -11,7 +11,7 @@ export default class Tech extends AbstractView {
         <h2>개발</h2>
         <ul class="articles__list">
           <li class="article__item">
-            <a href="/detail" class="article__link">
+            <a href="/article/:id" class="article__link">
               <div class="article__thumb"><img src="" alt="" /></div>
               <div class="article__text">
                 <span class="article__title">Article Title</span>

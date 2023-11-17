@@ -1,7 +1,7 @@
 import { header } from "./header.js";
 import { footer } from "./footer.js";
 
-const baseHTML = `
+const base = `
   ${header}
   <div class="container">
     <section id="contents" class="section"></section>
@@ -9,4 +9,4 @@ const baseHTML = `
   </div>
 `;
 
-export default baseHTML;
+export default base;

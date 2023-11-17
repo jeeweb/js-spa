@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 export default class Article extends AbstractView {
   constructor() {
     super();
-    this.setTitle("");
+    this.setTitle("토스 기술 블로그, 토스 테크");
   }
   async getHtml() {
     return `
