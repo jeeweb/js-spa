@@ -19,15 +19,14 @@ const router = async () => {
       isMatch: window.location.pathname === route.path,
     };
   });
-  console.log(pathMatches);
+  //console.log(pathMatches);
 
   let match = pathMatches.find((pathMatch) => pathMatch.isMatch);
-  console.log(match);
+  //console.log(match);
 
   const contents = document.querySelector("#contents");
 
   if (!match) {
-    console.log("error");
     contents.innerHTML = page404;
     return;
   } else {
@@ -37,7 +36,6 @@ const router = async () => {
 };
 
 const navigateTo = (url) => {
-  console.log(url);
   window.history.pushState(null, null, url);
   router();
 };
@@ -45,7 +43,7 @@ const navigateTo = (url) => {
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (e) => {
     const target = e.target;
-    console.log(e, e.target);
+
     // finding only anchor tag
     if (!(target instanceof HTMLAnchorElement)) return;
 

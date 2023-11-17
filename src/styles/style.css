@@ -55,7 +55,6 @@ body {
   background-color: #1b64da;
   transition: background-color 0.6s;
 }
-
 .nav__link {
   display: block;
   padding: 12px 10px;
@@ -75,7 +74,6 @@ body {
 .section__inner h2 {
   padding: 72px 0 52px;
   font-size: 36px;
-  font-weight: bold;
 }
 .article__item {
   height: 240px;
@@ -172,8 +170,8 @@ body {
 }
 .article__opinions p {
   font-size: 16px;
-  line-height: 2.4;
   color: #4e5968;
+  line-height: 2.4;
   text-align: center;
 }
 .article__opinions p span {
@@ -233,7 +231,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   padding: 200px 0;
 }
 .error__code {
