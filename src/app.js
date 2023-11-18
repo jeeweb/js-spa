@@ -42,7 +42,7 @@ const navigateTo = (url) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (e) => {
-    const target = e.target;
+    const target = e.target.closest("a");
 
     // finding only anchor tag
     if (!(target instanceof HTMLAnchorElement)) return;
