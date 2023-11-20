@@ -1,0 +1,22 @@
+{
+  "name": "js-spa",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Frameworkless SPA project with vanillaJS",
+  "scripts": {
+    "server": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeeweb/js-spa.git"
+  },
+  "author": "Jiee Kong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeeweb/js-spa/issues"
+  },
+  "homepage": "https://github.com/jeeweb/js-spa#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
