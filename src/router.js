@@ -24,9 +24,7 @@ const router = () => {
   });
 
   const match = pathMatch.find((el) => el.result !== null);
-  // console.log(match);
 
-  const subject = match.route.view.name;
   if (!match) {
     contents.innerHTML = page404;
     return;
@@ -34,8 +32,10 @@ const router = () => {
     const view = new match.route.view();
     const id = match.result[1];
     const dataSubject = dummyData.find(
-      (data) => data.subject.toLowerCase() === subject.toLowerCase()
+      (data) =>
+        data.subject.toLowerCase() === match.route.view.name.toLowerCase()
     );
+
     if (!id) {
       view.getData(dataSubject);
     } else {
