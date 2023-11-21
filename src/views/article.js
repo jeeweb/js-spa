@@ -3,21 +3,15 @@ import AbstractView from "./AbstractView.js";
 export default class Article extends AbstractView {
   constructor() {
     super();
-    this.setTitle("토스 기술 블로그, 토스 테크");
+    const target = document.querySelector("#contents");
+    this.$newEl = target.cloneNode(true);
+    this.$newEl.innerHTML = this.getTemplate();
+    target.replaceWith(this.$newEl);
   }
-  async getHtml() {
+  getTemplate() {
     return `
       <div class="article__inner">
-        <div class="article__img"><img src=""></div>
-        <h3>Article Title</h3>
-        <div class="article__info">
-          <div class="article__author-img"><img src=""></div>
-          <div class="article__info-text">
-            <span class="article__author">User Name · Dept</span>
-            <span class="article__date">2023. 00. 00</span>
-          </div>
-        </div>
-        <div class="article__contents">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="article__box"></div>
         <div class="article__opinions">
           <p>
             <span>재미있게 읽으셨나요?</span>
@@ -27,5 +21,23 @@ export default class Article extends AbstractView {
         </div>
       </div>
     `;
+  }
+  getContents(data) {
+    this.setTitle(data["title"]);
+
+    const div = this.$newEl.querySelector(".article__box");
+
+    div.innerHTML = `
+      <div class="article__img"><img src="${data["img"]}"></div>
+      <h3>${data["title"]}</h3>
+      <div class="article__info">
+        <div class="article__info-text">
+          <span class="article__author">${data["author"]}</span>
+          <span class="article__date">${data["date"]}</span>
+        </div>
+      </div>
+      <div class="article__contents">${data["content"]}</div>
+    `;
+    return div;
   }
 }
