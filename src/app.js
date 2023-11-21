@@ -2,6 +2,7 @@ import base from "./views/base.js";
 import tech from "./views/tech.js";
 import article from "./views/article.js";
 import { page404 } from "./views/404.js";
+import { dummyData } from "./db.js";
 
 const app = document.querySelector("#app");
 app.innerHTML = base;
@@ -31,7 +32,8 @@ const router = async () => {
     return;
   } else {
     const view = new match.route.view();
-    contents.innerHTML = await view.getHtml();
+    view.getList(dummyData);
+    contents.innerHTML = await view.getTemplate();
   }
 };
 
