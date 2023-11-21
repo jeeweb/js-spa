@@ -1,6 +1,5 @@
 import base from "./views/base.js";
 import router from "./router.js";
-//import router from "./server.js";
 
 const app = document.querySelector("#app");
 app.innerHTML = base;

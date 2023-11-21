@@ -119,8 +119,7 @@ body {
 .article__date {
   font-size: 16px;
   font-weight: 300;
-  color: #444;
-  opacity: 0.9;
+  color: #555;
 }
 .article__link:hover .article__thumb {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.14);
@@ -152,6 +151,7 @@ body {
 .article__inner h3 {
   font-size: 48px;
   font-weight: 600;
+  line-height: 1.3;
 }
 .article__info {
   display: flex;
