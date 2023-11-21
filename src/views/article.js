@@ -22,7 +22,7 @@ export default class Article extends AbstractView {
       </div>
     `;
   }
-  getContents(data) {
+  getData(data) {
     this.setTitle(data["title"]);
 
     const div = this.$newEl.querySelector(".article__box");

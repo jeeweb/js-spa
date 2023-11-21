@@ -17,7 +17,7 @@ export default class Tech extends AbstractView {
     </div>
     `;
   }
-  getList(data) {
+  getData(data) {
     const dataList = data.results;
     const list = this.$newEl.querySelector("ul");
 
