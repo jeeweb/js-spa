@@ -6,7 +6,8 @@ const app = document.querySelector("#app");
 app.innerHTML = base;
 
 const navigateTo = (url) => {
-  if (url !== currentDomain) {
+  const urlDomain = url.split("/")[0] + "//" + url.split("/")[2];
+  if (urlDomain !== currentDomain) {
     location.href = url;
   }
   window.history.pushState(null, null, url);
