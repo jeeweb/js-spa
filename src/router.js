@@ -11,7 +11,7 @@ const getArticles = async (subject) => {
     .then((res) => res.json())
     .then((data) => {
       if (subject) {
-        return data[subject];
+        return data.filter((article) => article.type === subject);
       }
     });
 
