@@ -18,10 +18,9 @@ export default class Design extends AbstractView {
     `;
   }
   getData(data) {
-    const dataList = data.results;
     const list = this.$newEl.querySelector("ul");
 
-    list.innerHTML = `${dataList
+    list.innerHTML = `${data
       .map(
         (item) => `
       <li class="article__item">
