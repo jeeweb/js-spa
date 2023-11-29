@@ -1,3 +1,4 @@
+import Model from "./model.js";
 import tech from "./views/tech.js";
 import article from "./views/article.js";
 import design from "./views/design.js";
@@ -12,15 +13,12 @@ const routes = [
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
-const fetchData = () => {
-  return fetch("/src/db.json").then((res) => res.json());
-};
-
 const getArticles = (matchPath) => {
   const view = new matchPath.route.view();
   const id = matchPath.result[1];
+  const model = new Model();
 
-  fetchData().then((data) => {
+  model.then((data) => {
     const dataType = !id
       ? matchPath.route.view.name.toLowerCase()
       : data.find((item) => item.id === id).type;
