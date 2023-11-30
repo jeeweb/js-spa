@@ -1,12 +1,12 @@
 import Controller from "./controller.js";
-import tech from "./views/tech.js";
-import article from "./views/article.js";
-import design from "./views/design.js";
+import Tech from "./views/tech.js";
+import Article from "./views/article.js";
+import Design from "./views/design.js";
 
 const routes = [
-  { path: "/", view: tech },
-  { path: "/design", view: design },
-  { path: "/article/:id", view: article },
+  { path: "/", view: Tech },
+  { path: "/design", view: Design },
+  { path: "/article/:id", view: Article },
 ];
 
 const pathToRegex = (path) =>
