@@ -1,4 +1,7 @@
 import Model from "./model.js";
+import Tech from "./views/tech.js";
+import Design from "./views/design.js";
+import Article from "./views/article.js";
 import { page404 } from "./views/404.js";
 
 export default class Controller {
@@ -7,35 +10,47 @@ export default class Controller {
   }
 
   getView(view) {
-    return new view();
+    let result;
+    switch (view) {
+      case "tech":
+        result = new Tech();
+        break;
+      case "design":
+        result = new Design();
+        break;
+    }
+    return result;
   }
 
-  async getArticles(path) {
-    const id = path.result[1];
-    const matchView = path.route.view;
-
+  async getArticleById(id) {
     await this.model.then((data) => {
-      const dataType = !id
-        ? matchView.name.toLowerCase()
-        : data.find((item) => item.id === id).type;
-      const dataGroupByType = data.filter((item) => item.type === dataType);
-
-      if (!id) {
-        this.getView(matchView).getData(dataGroupByType);
-      } else {
-        const article = data.find((item) => item.id === id);
-        this.getView(matchView).getData(article);
-      }
+      const articleView = new Article();
+      const article = data.find((item) => item.id === id);
+      articleView.getData(article);
+    });
+  }
+  async getAllArticles(dataType) {
+    await this.model.then((data) => {
+      const articles = data.filter((item) => item.type === dataType);
+      this.getView(dataType).getData(articles);
     });
   }
 
   render(path) {
     const contents = document.querySelector("#contents");
+
     if (!path) {
       contents.innerHTML = page404;
       return;
+    }
+
+    const id = path.result[1];
+
+    if (!id) {
+      const dataType = path.route.view.name.toLowerCase();
+      this.getAllArticles(dataType);
     } else {
-      this.getArticles(path);
+      this.getArticleById(id);
     }
   }
 }
